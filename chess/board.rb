@@ -50,7 +50,7 @@ end
 
 # b = Board.new
 # b.populate
-#
+# 
 # p b.grid[0][0]
 # b.move_piece([0,0], [1,1])
 # p b.grid[1][1]
