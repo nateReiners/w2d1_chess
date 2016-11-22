@@ -16,6 +16,9 @@ class Board
   def move_piece(start_pos, end_pos)
     @grid[end_pos[0]][end_pos[1]] = @grid[start_pos[0]][start_pos[1]]
     @grid[start_pos[0]][start_pos[1]] = NULL_PIECE
+
+    # make sure this raises exception for invalid input no piece at start
+    #  or piece at end
   end
 
   def populate
@@ -37,12 +40,18 @@ class Board
     @grid
   end
 
+  def in_bounds?(pos)
+    pos.all? do |el|
+      el < @grid.length && el >= 0
+    end
+  end
+
 end
 
-b = Board.new
-b.populate
-
-p b.grid[0][0]
-b.move_piece([0,0], [1,1])
-p b.grid[1][1]
-p b.grid[0][0]
+# b = Board.new
+# b.populate
+#
+# p b.grid[0][0]
+# b.move_piece([0,0], [1,1])
+# p b.grid[1][1]
+# p b.grid[0][0]
